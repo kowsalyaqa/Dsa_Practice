@@ -1,0 +1,80 @@
+https://www.bigocheatsheet.com/
+
+https://excalidraw.com/#json=8889YiQ7L-kIk6fXf9U7t,hDEr7JaFzpIiPOccRUKc2Q
+
+-----------------------------------------------------------------------------------
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import java.sql.Time;
+import java.util.Arrays;
+
+public class TwoSum {
+
+
+    @Test
+    public void test() {
+        int[] nums = {2, 3, 5, 7}; // input array
+        int target = 9; // input target//
+        int[] actualOutput = twoSum(nums, target); // method call
+        int[] expectedOutput = {0,3};
+        Assertions.assertArrayEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void test1() {
+        int[] nums = {2, 4, 6, 8}; // input array
+        int target = 30; // input target//
+        Assertions.assertArrayEquals(new int[]{-1,-1}, twoSum(nums, target));
+    }
+
+    public int[] twoSum(int[] nums, int target) {
+
+        if (nums == null) throw new RuntimeException("input Array can't be null"); // O(1)
+        if (nums.length < 2) throw new RuntimeException("input array size must be greater than or equals to 2");//O(1)
+
+        for (int i = 0; i < nums.length; i++) { //O(N+1)
+            int sum = nums[i]; // O(1)
+            for (int j = 0; j < nums.length; j++) { // O(N)
+                if (i == j) continue; // O(1)
+                if (sum + nums[j] == target)  //O(1)
+                    return new int[]{i, j};  //O(1)
+            }
+        }
+        return new int[]{-1, -1}; //O(1)
+    }
+    // O(1)+ O(1) +O(N+1)[O(1)+O(N)+O(1)+O(1)+O(1)]+ O(1)
+    // O(2) + O(N+1)*{O(4N)]+O(1)
+    // O(3) + O4N^2+O4N
+    // O(N^2)+O(N) n=6, N2->36, N=6, n=10, N2=100, n=10
+    // O(N^2)
+}
+
+=======================================================================================
+	
+	Team- Problems for today are updated in the sheet please solve them.
+
+	Action items:
+	- Please fill in the Team_Details sheet I've seen only 11 people filled so far, making it soon helps solving daily problems
+	- Please do revise the previous day's concepts / problems as frequently as possible, until we get used to the terms
+	- I'ved added two new columns to the template tab, please add them to your name sheet and add values without fail
+		- Referred solution from external source	
+		- Solved on own with fair understanding
+
+
+	Tips:
+	- Any problem thats unclear or referred solution and solved, we likely forget in 48 hrs, so please revist the solution every day before your practise and if needed solve it again quickly. More you type the code more you get comfortable, this is a great tip for who are starting fresh with DSA
+	- solve easy problems and celebrate the result...!
+	
+	==========================================================================
+	- Please create a Java file for each problem
+	- ⁠copy the problem link 
+	- ⁠copy the problem solving template in multi line comments 
+	- ⁠for every point in problem solving template add inline answer
+	- ⁠write pseudo code 
+	- ⁠write the method to implement 
+	- ⁠write down the time and space complexity for the code 
+	- ⁠test the method with junits.
+	- ⁠push this file to GitHub 
+	- ⁠also solve the same problem in leetcode and see if all TCs are running or not.

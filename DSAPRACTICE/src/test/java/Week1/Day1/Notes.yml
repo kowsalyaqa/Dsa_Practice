@@ -1,0 +1,102 @@
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+As discussed I hereby share you all the prerequisites, please have a serious consideration of the following list and be ready, as they can act as a good catalyst in your transformation. Thanks
+	- Have a good laptop
+	- Have good wifi setup
+	- Ergonomic office set up
+	- White board
+	- JDK / python setup
+	- Create Microsoft github account
+	- Create Leetcode / hackerank accounts
+	- Have one good IDE preferably Intellij / eclipse
+	- Refresh programming language of your choice
+	- Open learning mindset with consistency & committment
+
+Please refresh your programming language skills and come prepared for the next session as we get started with DSA. Below are some important topics for us to learn to build a good understanding of DSA. I’ll add if anything that I get to recall. 
+
+Java concepts:
+- Data types
+- variables
+- OOps concepts
+	- Inheritence
+	- Encapsulation
+	- Polymorphism (overriding & overloading)
+- Conditional statements
+	- If
+	- If-else
+	- elseif ladder
+	- switch
+- Loop control statements
+	- for
+	- while
+	- do, while
+- Array class operations
+- String class operations
+- List
+	- ArrayList
+	- Linked list
+- Set
+	- HashSet
+	- Linked HashSet
+	- Sorted set
+- Map
+	- HashMap
+	- LinkedHashMap
+	- TreeMap
+	- ConcurrentHashMap
+- Queue & stack
+	- ArrayDeque
+
+
+==========================================================================
+Agenda for the upcoming session:
+- Basics of Array and sample problems
+- Problem solving template
+- Time and space complexity
+- Problems On basic Math
+- Two pointer Algorithm
+===============================================================================
+
+https://excalidraw.com/#json=8889YiQ7L-kIk6fXf9U7t,hDEr7JaFzpIiPOccRUKc2Q
+
+==============================================================================
+
+Problem solving template
+
+1. Did I understand the problem? yes or no
+
+        If no ask the person to provide with more details with examples
+        If yes go to the next step
+
+        What is the input(s)?
+        What is the expected output?
+        Do I’ve constraints to solve the problem?
+        Do Ive all the information to go to the next steps
+        How big is your test data set will be?
+
+2. Test data set
+        Minimum  3 data set including positive, negative and edge
+        Validate with the interviewer if the data set is fine by his/ her assumptions
+
+3. Do I know to solve it?
+        Yes- great is there an alternate ?
+        No - can I break the problem into sub problems?
+
+4. Ask for hint (if you don’t know how to solve this5.  Do I know alternate solutions as well
+        Yes- what are those?
+        No- that is still fine, proceed to solve by what you know
+
+Simple technique brute force
+
+6. If you know the alternate solution find out the O-notations (performance)
+7. Then, explain either both are the best (depends on the time)
+        Approach 1:- start with the worst-> improve (optimize) ->  End up with the best
+        Approach 2: Write down the options and benefits and code the best
+8. Start always with the Pseudo code (explain the pseudo code to the interviewer with some test data)
+    -write the code
+9. Test against different test data
+10. If it fails then debug to solve it
+11. Optimize the code and remove unnecessary code
+
+==================================================================================
+
