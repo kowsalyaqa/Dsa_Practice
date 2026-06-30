@@ -84,7 +84,7 @@ Pseudo Code for Two Pointer Approach:
 3.return maxIndex
 
 6. If you know the alternate solution find out the O-notations (performance)
-		2.Two Pointer Appraoch
+		2.Two Pointer Approach
 
 7. Then, explain either both are the best (depends on the time)
         Approach 1:- start with the worst-> improve (optimize) ->  End up with the best
@@ -97,14 +97,16 @@ Pseudo Code for Two Pointer Approach:
 
 /*
 completion_criteria
-Applied the problem solving template 
-Solved the question using brute force and specific algoirthm
-Pushed the code to github
-Solved the question in leetcode and observed all TCs passed
+Applied the problem solving template --->Yes
+Solved the question using brute force and specific algoirthm-->Yes
+Pushed the code to github-->Yes
+Solved the question in leetcode and observed all TCs passed-->Yes
 */
-package Week1.Assigments;
 
-import javax.management.RuntimeErrorException;
+/*Completion Time - 50 mins*/
+
+
+package Week1.Assigments;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -116,7 +118,8 @@ public class FindIndexOfLargestElement_2706_1 {
 		int[] arr = { 1, 2, 3, 4, 5 };
 		int expectedIndex = 4;
 		//int actualIndex = findLargestElementIndex(arr);
-		int actualIndex=findLargestElementIndex2(arr);
+		//int actualIndex=findLargestElementIndex2(arr);
+		int actualIndex=findLargestElementIndex3(arr);
 		Assertions.assertEquals(expectedIndex, actualIndex, "Output mismatch");
 	}
 
@@ -125,7 +128,8 @@ public class FindIndexOfLargestElement_2706_1 {
 		int[] arr = { 5, 1, 2, 3, 4, 5 };
 		int expectedIndex = 0;
 		//int actualIndex = findLargestElementIndex(arr);
-		int actualIndex=findLargestElementIndex2(arr);
+		//int actualIndex=findLargestElementIndex2(arr);
+		int actualIndex=findLargestElementIndex3(arr);
 		Assertions.assertEquals(expectedIndex, actualIndex, "Output mismatch");
 	}
 
@@ -134,7 +138,8 @@ public class FindIndexOfLargestElement_2706_1 {
 		int[] arr = { -5, 1, 2, 3, 4, 5 };
 		int expectedIndex = 5;
 		//int actualIndex = findLargestElementIndex(arr);
-		int actualIndex=findLargestElementIndex2(arr);
+		//int actualIndex=findLargestElementIndex2(arr);
+		int actualIndex=findLargestElementIndex3(arr);
 		Assertions.assertEquals(expectedIndex, actualIndex, "Output mismatch");
 	}
 
@@ -142,14 +147,16 @@ public class FindIndexOfLargestElement_2706_1 {
 	public void test4() {
 		int[] arr = {};
 		//findLargestElementIndex(arr);
-		findLargestElementIndex2(arr);
+		//findLargestElementIndex2(arr);
+		findLargestElementIndex3(arr);
 	}
 
 	@Test
 	public void test5() {
 		int[] arr = null;
 		//findLargestElementIndex(arr);
-		findLargestElementIndex2(arr);
+		//findLargestElementIndex2(arr);
+		findLargestElementIndex3(arr);
 	}
 
 	//Brute Force Approach
@@ -191,6 +198,27 @@ public class FindIndexOfLargestElement_2706_1 {
 	}
 	
 	//O(1)+O(N/2)+O(N/2)+O(N/2)==>O(1)+O(3N/2)==>O(N)
+	
+	//Optimized Two Pointer Approach Code
+	private int findLargestElementIndex3(int[] arr) {
+		if (arr == null || arr.length == 0) //No Execution 
+			throw new RuntimeException("Array Input should not be Empty or null ");
+		int maxIndex=0,left=0,right=arr.length-1; //O(1)
+		while(left<=right) {//O(N/2)
+			if(arr[left]>arr[maxIndex]) //O(N/2)
+				maxIndex=left;
+			else if(arr[right]>arr[maxIndex])//O(N/2)
+				maxIndex=right;
+			left++; //O(N/2)
+			right--; //O(N/2)
+		}
+		
+		return maxIndex;
+	}
+	
+	//O(1)+O(N/2)+O(N/2)+O(N/2)+O(N/2)+O(N/2)
+	//O(1)+5(O(N/2)
+	//O(N)
 }
 
 
