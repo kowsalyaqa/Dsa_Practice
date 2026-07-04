@@ -98,45 +98,45 @@ public class MajorityElement_2906_6 {
 	public void test1() {
 		int[] arr = { 3, 2, 3 };
 		int expectedIndexCount = 3;
-		//int actualIndexCount = majorityElement(arr);
-		int actualIndexCount = majorityElement2(arr);
+		int actualIndexCount = majorityElement(arr);
 		Assertions.assertEquals(expectedIndexCount, actualIndexCount, "Output mismatch");
+		Assertions.assertEquals(3, majorityElement2(arr));
 	}
 
 	@Test
 	public void test2() {
 		int[] arr = { 2, 2, 1, 1, 1, 2, 2 };
 		int expectedIndexCount = 2;
-		//int actualIndexCount = majorityElement(arr);
-		int actualIndexCount = majorityElement2(arr);
+		int actualIndexCount = majorityElement(arr);
 		Assertions.assertEquals(expectedIndexCount, actualIndexCount, "Output mismatch");
+		Assertions.assertEquals(2, majorityElement2(arr));
 	}
 
 	@Test
 	public void test3() {
 		int[] arr = { 1 };
 		int expectedIndexCount = 1;
-		//int actualIndexCount = majorityElement(arr);
-		int actualIndexCount = majorityElement2(arr);
+		int actualIndexCount = majorityElement(arr);
 		Assertions.assertEquals(expectedIndexCount, actualIndexCount, "Output mismatch");
+		Assertions.assertEquals(1, majorityElement2(arr));
 	}
 
 	@Test
 	public void test4() {
 		int[] arr = { 3, 3, 4 };
 		int expectedIndexCount = 3;
-		//int actualIndexCount = majorityElement(arr);
-		int actualIndexCount = majorityElement2(arr);
+		int actualIndexCount = majorityElement(arr);
 		Assertions.assertEquals(expectedIndexCount, actualIndexCount, "Output mismatch");
+		Assertions.assertEquals(3, majorityElement2(arr));
 	}
 
 	@Test
 	public void test5() {
 		int[] arr = { 4, 3, 3 };
 		int expectedIndexCount = 3;
-		//int actualIndexCount = majorityElement(arr);
-		int actualIndexCount = majorityElement2(arr);
+		int actualIndexCount = majorityElement(arr);
 		Assertions.assertEquals(expectedIndexCount, actualIndexCount, "Output mismatch");
+		Assertions.assertEquals(3, majorityElement2(arr));
 	}
 
 	// Brute Force Approach
@@ -158,21 +158,25 @@ public class MajorityElement_2906_6 {
 		return majorElement;
 	}
 	
-	//Maximum Worst Time Complexity=>O(n^2)
+	//Time Complexity=>O(n^2)
 
 	//Boyer-Moore Voting Algorithm for O(N) Time Complexity
 	public int majorityElement2(int[] nums) {//3,3,2
-	    int count = 0; //O(1)
-	    int candidate = 0;//O(1)
-	    for (int num : nums) {//O(N)
-	        if (count == 0) {//O(1)+O(1)
-	            candidate = num;//O(1)+O(1)
+		int candidate = 0;
+	    int count = 0;
+	    for (int num : nums) {
+	        if (count == 0) {
+	            candidate = num;
 	        }
-	        count += (num == candidate) ? 1 : -1;//O(1)+O(1)+O(1)
+	        
+	        if (num == candidate) {
+	            count++;
+	        } else {
+	            count--;
+	        }
 	    }
-	    return candidate;//O(1)
+	    return candidate;
 	}
 	
 	//Time Complexity : O(N)
-	
 }

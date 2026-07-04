@@ -82,57 +82,74 @@ public class FindDuplicateNumber_2706_3 {
 	@Test
 	public void test1() {
 		int[] nums = { 1, 3, 4, 2, 2 };
-		int expectedOutput = 2;
-		int actualOutput = findDuplicate(nums);
-		Assertions.assertEquals(expectedOutput, actualOutput);
+		int expectedOutput1 = 2;
+		int actualOutput1 = findDuplicate1(nums);
+		Assertions.assertEquals(expectedOutput1, actualOutput1);
+		int expectedOutput2 = 2;
+		int actualOutput2 = findDuplicate2(nums);
+		Assertions.assertEquals(expectedOutput2, actualOutput2);
 	}
 
 	@Test
 	public void test2() {
-		int[] nums = { 3,1,3,4,2 };
+		int[] nums = { 3, 1, 3, 4, 2 };
 		int expectedOutput = 3;
-		int actualOutput = findDuplicate(nums);
+		int actualOutput = findDuplicate1(nums);
 		Assertions.assertEquals(expectedOutput, actualOutput);
+		int expectedOutput2 = 3;
+		int actualOutput2 = findDuplicate2(nums);
+		Assertions.assertEquals(expectedOutput2, actualOutput2);
 	}
-	
+
 	@Test
 	public void test3() {
-		int[] nums = { 3,3,3,3,3 };
+		int[] nums = { 3, 3, 3, 3, 3 };
 		int expectedOutput = 3;
-		int actualOutput = findDuplicate(nums);
+		int actualOutput = findDuplicate1(nums);
 		Assertions.assertEquals(expectedOutput, actualOutput);
+		int expectedOutput2 = 3;
+		int actualOutput2 = findDuplicate2(nums);
+		Assertions.assertEquals(expectedOutput2, actualOutput2);
 	}
-	
+
 	@Test
 	public void test4() {
-		int[] nums = {1,1};
+		int[] nums = { 1, 1 };
 		int expectedOutput = 1;
-		int actualOutput = findDuplicate(nums);
+		int actualOutput = findDuplicate1(nums);
 		Assertions.assertEquals(expectedOutput, actualOutput);
+		int expectedOutput2 = 1;
+		int actualOutput2 = findDuplicate2(nums);
+		Assertions.assertEquals(expectedOutput2, actualOutput2);
 	}
-	
-	//Brute force Approach
-	public int findDuplicate(int[] nums) {
-		int duplicateEle = 0;//O(1)
-		for (int i = 0; i < nums.length - 1; i++) {//O(N)
-			for (int j = i + 1; j < nums.length; j++) {//O(N)
+
+	// Brute force Approach
+	public int findDuplicate1(int[] nums) {
+		int duplicateEle = 0;// O(1)
+		for (int i = 0; i < nums.length - 1; i++) {// O(N)
+			for (int j = i + 1; j < nums.length; j++) {// O(N)
 				if (nums[i] == nums[j])
 					duplicateEle = nums[i];
 			}
 		}
 		return duplicateEle;
 	}
-	
-	
-	//O(1)+O(N)*O(N)
-	//O(N^2)==>time complexity
-	
-	
-	//Two Pointer Approach 
-	public int findDuplicate1(int[] nums) {
-		int duplicateEle = 0;
-		return duplicateEle;
-	}
-	
-}
 
+	// O(1)+O(N)*O(N)
+	// O(N^2)==>time complexity
+
+	// Array Solution
+	public int findDuplicate2(int[] nums) {
+		boolean[] visited = new boolean[nums.length];
+		for (int num : nums) {
+			if (visited[num]) {
+				return num;
+			}
+			visited[num] = true;
+		}
+		return -1;
+	}
+
+	// Time Complexity=>O(N)
+
+}

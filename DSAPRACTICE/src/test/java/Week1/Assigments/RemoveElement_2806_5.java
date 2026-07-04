@@ -96,31 +96,34 @@ public class RemoveElement_2806_5 {
 
 	@Test
 	public void test1() {
-		int[] arr = { 3,2,2,3};
+		int[] arr = { 3, 2, 2, 3 };
 		int value = 2;
 		int expectedIndexCount = 2;
 		int actualIndexCount = removeElement(arr, value);
 		Assertions.assertEquals(expectedIndexCount, actualIndexCount, "Output mismatch");
+		Assertions.assertEquals(2, removeElement1(arr, value));
 	}
-	
+
 	@Test
 	public void test2() {
-		int[] arr = { 0,1,2,2,3,0,4,2};
+		int[] arr = { 0, 1, 2, 2, 3, 0, 4, 2 };
 		int value = 2;
 		int expectedIndexCount = 5;
 		int actualIndexCount = removeElement(arr, value);
 		Assertions.assertEquals(expectedIndexCount, actualIndexCount, "Output mismatch");
+		Assertions.assertEquals(5, removeElement1(arr, value));
 	}
 
 	@Test
 	public void test3() {
-		int[] arr = { 2,2,2,2};
+		int[] arr = { 2, 2, 2, 2 };
 		int value = 2;
 		int expectedIndexCount = 0;
 		int actualIndexCount = removeElement(arr, value);
 		Assertions.assertEquals(expectedIndexCount, actualIndexCount, "Output mismatch");
+		Assertions.assertEquals(0, removeElement1(arr, value));
 	}
-	
+
 	@Test
 	public void test4() {
 		int[] arr = {};
@@ -128,37 +131,39 @@ public class RemoveElement_2806_5 {
 		int expectedIndexCount = 0;
 		int actualIndexCount = removeElement(arr, value);
 		Assertions.assertEquals(expectedIndexCount, actualIndexCount, "Output mismatch");
+		Assertions.assertEquals(0, removeElement1(arr, value));
 	}
-	
+
 	@Test
 	public void test5() {
-		int[] arr = {2};
+		int[] arr = { 2 };
 		int value = 3;
 		int expectedIndexCount = 1;
 		int actualIndexCount = removeElement(arr, value);
 		Assertions.assertEquals(expectedIndexCount, actualIndexCount, "Output mismatch");
+		Assertions.assertEquals(1, removeElement1(arr, value));
 	}
 
 	@Test
 	public void test6() {
-		int[] arr = {3,3};
+		int[] arr = { 3, 3 };
 		int value = 5;
 		int expectedIndexCount = 2;
 		int actualIndexCount = removeElement(arr, value);
 		Assertions.assertEquals(expectedIndexCount, actualIndexCount, "Output mismatch");
+		Assertions.assertEquals(2, removeElement1(arr, value));
 	}
 
-	
 	// Brute Force Approach
 	private int removeElement(int[] nums, int val) {
 		if (nums == null)
 			throw new RuntimeException("Array Input should not be Empty or null ");
 		if (nums.length == 0)
-			return 0; 
-		int duplicateElement=0;
-		for (int i = nums.length-1; i >= 0; i--) {
-			 if(nums[i] == val) {
-				 duplicateElement++;
+			return 0;
+		int duplicateElement = 0;
+		for (int i = nums.length - 1; i >= 0; i--) {
+			if (nums[i] == val) {
+				duplicateElement++;
 				continue;
 			}
 			for (int j = i - 1; j >= 0; j--) {
@@ -171,6 +176,22 @@ public class RemoveElement_2806_5 {
 				}
 			}
 		}
-		return nums.length-duplicateElement;
+		return nums.length - duplicateElement;
 	}
+
+	// Time Complexity: O(N^2)
+
+	// Two pointer Approach
+	private int removeElement1(int[] nums, int val) {
+		int left = 0;
+		for (int right = 0; right < nums.length; right++) {
+			if (nums[right] != val) {
+				nums[left] = nums[right];
+				left++;
+			}
+		}
+		return left;
+	}
+
+	// Time Complexity: O(N)
 }
