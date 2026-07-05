@@ -1,0 +1,158 @@
+Pretty good 
+20 mins - Easy 
+45 mins - Medium
+
+1.Timing will improve, Focus on completing the problem on the given day itself
+2.Morning are best to start compare other time on day
+3.Every 2 days once, Go Refer older solution
+4.AI read good, again memorization, So no , solve the problem by your own
+5.Be a reviewer, where we can do optimization
+
+Leetcode:
+1.Logic is correct
+2.Code running on correct Time Complexity
+3.TLE(Time Limit Exceeded), Your solution is correct, but slower, So Consider Edge cases
+4.Done Data driven solution, not work for solid system, Debug it and check(Problem on test data on identifying on solving problem using template)
+5.AI share your understanding, check correct, Don't ask for solutions
+6.Role based search, I am going 10 weeks for camp, How t]can i udnderstand
+
+My Experience
+1.Test data Focus little improved
+	Negative, Edge importance
+2. 2 problems able to solve a day, but If post-poned, very tough
+3.Revise it, 
+4.After solve, if again see, some confusion back of minds
+5.Refer the problem , you have to type, non-negotiable, 
+
+
+Space Complexity=input space +auxiliary space
+
+initialization variable (Auxiliary space) Interviewer asks, specify AS
+
+int a=10,int b=5; //O(2)
+int[] arr; new ArrayList<>//O(N) linear complexity
+int[][] arr;O(N^2)
+
+space complexity with recursion
+5! n=5 O(1)
+
+DSA Solve problem 2 approach
+Iterative Approach
+	while
+	for 
+
+Recursive Approach
+	call method itself (Eg: Sum of the natural number)
+
+
+fib(n);
+
+o 1 2 3 5 8 13
+
+public int fib(n){
+	if(n==0)
+		return 1;
+	if(n==1)
+		return 1;
+	fib(n-1)+fib(n-2);
+}
+
+fib(n)           +  fib(n-2)
+|
+fib(n-1)+fib(n-2).  fib(n-3)+fib(n-4)
+|fib(n-2)+fib(n-3)
+
+
+Call Stack include for space Complexity
+
+Call stack always O(N)
+
+For recursive solution
+SC=>Input Space +Auxiliary space+ Call Stack size(only for Recursive approach)
+==============================================
+
+Leet code Key words
+
+->Non-decreasing
+->Non-increasing
+->strictly increasing
+->strictly decreasing
+->Sort it inplace
+->Sorted order
+->ascending order
+->descending order
+->Auxiliary space
+9.Amortised complexity (Dynamic Array)
+
+
+--------------------------
+Two Pointers
+
+1,i ->pointers
+
+Any brute using I, j call 2 pointer 
+
+Randomly doing in BFA
+
+2 Pointer approach
+
+-Use 2 reference to move the control
+->Usually used when solving array or string problems
+->Solving time and space complexity issue
+
+Pointer sit on
+Opposite
+Same 
+
+Arrays , String mostly use
+
+Eg problems:
+
+->Reverse String
+	(Swap)->with temp variable, without temp variable
+
+->TWO SUM
+	BFA->Nested For loop
+	TWP->yes
+
+->Only array is sorted only 2 pointer will work
+->How array is arranged
+
+->Confusion on when move pointers need to understand
+
+
+
+Given a sorted array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+Input: nums = [2,3,5,7], target = 9
+Output: [0,3]
+Output: Because nums[0] + nums[3] == 9, we return [0, 3].
+
+public int[] findIndicesOfTarget(int[] nums, int target) {
+		int left=0,right=nums.length-1,sum=0;
+		while(left<right) {
+			sum=nums[left]+nums[right];
+			if(sum==target) {
+				return new int[] {left,right};
+			}
+			if(sum<target) {
+				left++;
+			}else if(sum>target) {
+				right--;
+			}
+		}
+		return new int[] {-1,-1};
+	}
+
+
+
+Leetcode
+
+Trapping Rain Water (Important question)
+Krishna solved problem Brute force approach, Able to understand how breaking the problem and identifiy solution
+
+Home work - Need to solve the above problem , then only tomorrow optimization of the sam eproblem with diffrent techniques able to understand
+
+
+
+
