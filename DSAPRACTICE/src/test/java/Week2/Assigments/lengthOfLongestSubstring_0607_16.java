@@ -67,6 +67,16 @@ Simple technique brute force
  * 
  */
 
+/*6. If you know the alternate solution find out the O-notations (performance)
+7. Then, explain either both are the best (depends on the time)
+        Approach 1:- start with the worst-> improve (optimize) ->  End up with the best
+        Approach 2: Write down the options and benefits and code the best
+8. Start always with the Pseudo code (explain the pseudo code to the interviewer with some test data)
+    -write the code
+9. Test against different test data
+10. If it fails then debug to solve it
+11. Optimize the code and remove unnecessary code*/
+
 
 /*completion_criteria
 Applied the problem solving template - yes
@@ -86,33 +96,36 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class lengthOfLongestSubstring_0607_16 {
-//
-//	@Test
-//	public void test1() {
-//		String s = "abcabcbb";
-//		Assertions.assertEquals("abc", lengthOfLongestSubstring(s));
-//	}
-//
-//	@Test
-//	public void test2() {
-//		String s = "a";
-//		Assertions.assertEquals("a", lengthOfLongestSubstring(s));
-//	}
-//
-//	@Test
-//	public void test3() {
-//		String s = "aaaaa";
-//		Assertions.assertEquals("a", lengthOfLongestSubstring(s));
-//	}
+
+	@Test
+	public void test1() {
+		String s = "abcabcbb";
+		Assertions.assertEquals("abc", lengthOfLongestSubstring(s));
+		Assertions.assertEquals(3, lengthOfLongestSubstring1(s));
+	}
+
+	@Test
+	public void test2() {
+		String s = "a";
+		Assertions.assertEquals("a", lengthOfLongestSubstring(s));
+		Assertions.assertEquals(1, lengthOfLongestSubstring1(s));
+	}
+
+	@Test
+	public void test3() {
+		String s = "aaaaa";
+		Assertions.assertEquals("a", lengthOfLongestSubstring(s));
+		Assertions.assertEquals(1, lengthOfLongestSubstring1(s));
+	}
 
 	@Test
 	public void test4() {
 		String s = "pwwkew";
-		//Assertions.assertEquals("wke", lengthOfLongestSubstring(s));
-		Assertions.assertEquals("wke", lengthOfLongestSubstring1(s));
+		Assertions.assertEquals("wke", lengthOfLongestSubstring(s));
+		Assertions.assertEquals(3, lengthOfLongestSubstring1(s));
 	}
 
-	// Brute force Solution
+	// Brute force Solution->TC: O(N^4)
 	public String lengthOfLongestSubstring(String s) {
 		if (s.length() == 0)
 			return "";
@@ -133,8 +146,6 @@ public class lengthOfLongestSubstring_0607_16 {
 		}
 		return longestSubstringList.get(0);
 	}
-
-	// TC: O(N^4)
 
 	public boolean IsCurrentSubStringHasDuplicate(String subString) {
 		// Assuming standard ASCII characters (128 possible characters)
@@ -167,7 +178,7 @@ public class lengthOfLongestSubstring_0607_16 {
 		return false;
 	}
 
-	// Optimized Solution
+	// Optimized Solution->TC:O(N)
 	public int lengthOfLongestSubstring1(String s) {
 		Set<Character> set = new HashSet<>();
 		int left = 0;
@@ -183,7 +194,7 @@ public class lengthOfLongestSubstring_0607_16 {
 		return max;
 	}
 
-	// Optimized Solution
+	// Optimized Solution->TC://O(N)
 	public int lengthOfLongestSubstringa2(String s) {
 		// Array to track character frequency in current window (ASCII characters)
 		int[] charFrequency = new int[128];
@@ -215,4 +226,5 @@ public class lengthOfLongestSubstring_0607_16 {
 		return maxLength;
 	}
 
+	
 }
