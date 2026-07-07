@@ -155,4 +155,69 @@ Home work - Need to solve the above problem , then only tomorrow optimization of
 
 
 
+package week2;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import java.util.Map;
+
+public class TrappingRainWater {
+
+    @Test
+    public void test() {
+        int[] heights = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        Assertions.assertEquals(6, trapWater(heights));
+    }
+
+    @Test
+    public void test1() {
+        int[] heights = {4,2,0,3,2,5};
+        Assertions.assertEquals(9, trapWater(heights));
+    }
+
+    /**
+     * initialise two variables called leftMaxHeight=Integer.MIN_VALUE, rightMaxHeight=Integer.MIN_VALUE, save=0
+     * iterate the array from start index till the end
+     * - for every index i, compute the leftMaxHeight, rightMaxHeight
+     * - Take a minimum between the left and right max heights (i.e water can be stored till the wall that has the min height)
+     * - to compute the units of water stored subtract the building height (value at current index) from the minHeight
+     * - if the ans is less than zero, do a math.max() with 0, since the water can't be saved in -ve units
+     * - accumulate the result into save variable and proceed
+     * return save
+     *
+     * TC: O(n^2)
+     * SC: O(1)
+     *
+     *
+     *
+     */
+
+    public int trapWater(int[] heights) {
+
+        int save = 0;
+        for (int i = 1; i < heights.length - 1; i++) { // O(n)
+            // findLeftMax
+            int lMaxHeight = findMax(heights, i, "left");
+            // find rightMax
+            int rMaxHeight = findMax(heights, i, "right");// O(n)
+            int units = Math.max(0, Math.min(lMaxHeight, rMaxHeight) - heights[i]);
+            save += units;
+        }
+        return save;
+    }
+
+    public int findMax(int[] heights, int index, String direction) {
+        int maxHeight = Integer.MIN_VALUE;
+        if (direction.equals("left")) {
+            for (int i = 0; i < index; i++) {
+                maxHeight = Math.max(maxHeight, heights[i]);
+            }
+        } else {
+            for (int i = index + 1; i < heights.length; i++) {
+                maxHeight = Math.max(maxHeight, heights[i]);
+            }
+        }
+        return maxHeight;
+    }
+}
